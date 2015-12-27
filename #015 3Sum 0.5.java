@@ -1,3 +1,6 @@
+/*
+    Trying to solve with HashMap.
+*/
 import java.util.*;
 
 public class Solution {
