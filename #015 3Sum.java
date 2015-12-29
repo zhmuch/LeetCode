@@ -21,7 +21,7 @@ public class Solution {
                     res.add(nums[up]);
                     result.add(res);
                     
-                    down++;           //Waited to be corrected. If up == down + 2, will not cover the case where up == down + 1. 
+                    down++;       // Maybe there is a bug. 
                     up--;
                     while (nums[down-1] == nums[down] && down < up) down++;
                     while (nums[up+1] == nums[up] && down < up) up--;
