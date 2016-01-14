@@ -1,3 +1,8 @@
+/*
+    先遍历矩形，得到直方图矩阵（方向任意）；
+    每一行进行直方图最大矩形面积计算，Largest Rectangle in Histogram。
+*/
+
 public class Solution {
     public int maximalRectangle(char[][] matrix) {
         int row = matrix.length;
