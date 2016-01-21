@@ -10,6 +10,16 @@ public class Solution {
         int l=prices.length;
         if(l<2 || k<1) return 0;
         
+  //针对大k优化。
+        if (k >=  n/2) {
+          int maxPro = 0;
+          for (int i = 1; i < n; i++) {
+            if (prices[i] > prices[i-1])
+                maxPro += prices[i] - prices[i-1];
+          }
+          return maxPro;
+        }
+          
   //过滤噪声。
         int[] p = new int[l];
         int index = 0;
