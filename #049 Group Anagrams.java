@@ -1,5 +1,16 @@
 /*
   Override compare();
+  Comparator<String> comparator = new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                int l = o1.length();
+                for(int i=0; i<l; i++){
+                    if (o1.charAt(i) != o2.charAt(i))
+                        return o1.charAt(i) - o2.charAt(i);
+                }
+                return 0;
+            }
+        };
 */
 
 public class Solution {
