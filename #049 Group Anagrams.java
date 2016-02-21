@@ -1,24 +1,11 @@
 /*
-  Time Limit Exceed.
+  Override compare();
 */
 
 public class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
         List<List<String>> res = new ArrayList<>();
         int l = strs.length;
-
-        Comparator<String> comparator = new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                int l = o1.length();
-                for(int i=0; i<l; l++){
-                    if(o1.charAt(i) == o2.charAt(i)) continue;
-                    else if(o1.charAt(i) > o2.charAt(i)) return 1;
-                    else return -1;
-                }
-                return 0;
-            }
-        };
 
         Hashtable<String, Integer> hash = new Hashtable<>();
         int index = 0;
@@ -37,7 +24,7 @@ public class Solution {
             }
         }
         for(int i=0; i<index; i++){
-            Collections.sort(res.get(i), comparator);
+            Collections.sort(res.get(i));
         }
         return res;
     }
