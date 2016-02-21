@@ -9,6 +9,33 @@
  */
 
 /**
+ * Iteratively, Using Stack.
+ */
+public class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        
+        if(root == null) return res;
+        
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        TreeNode curr = root.left;
+
+        while(!stack.empty() || curr!=null){
+            while(curr != null){
+                stack.push(curr);
+                curr = curr.left;
+            }
+            curr = stack.pop();
+            res.add(curr.val);
+            curr = curr.right;
+        }
+
+        return res;
+    }
+}
+
+/**
  * Recursive Edition
  */
 public class Solution {
