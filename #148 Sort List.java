@@ -1,4 +1,47 @@
 /*
+  AC.  Modified merge method.
+*/
+import java.util.*;
+
+    public ListNode merge(ListNode a, ListNode b){
+        if(a == null)
+            return b;
+        if(b == null)
+            return a;
+
+        ListNode res = null, prev = null;
+        if(a.val < b.val) {
+            res = a;
+            prev = a;
+            a = a.next;
+        }
+        else {
+            res = b;
+            prev = b;
+            b = b.next;
+        }
+
+        while(a != null && b != null){
+            if(a.val < b.val){
+                prev.next = a;
+                prev = prev.next;
+                a = a.next;
+            }
+            else{
+                prev.next = b;
+                prev = prev.next;
+                b = b.next;
+            }
+        }
+
+        if(a == null)
+            prev.next = b;
+        else
+            prev.next = a;
+        return res;
+    }
+
+/*
   java.lang.StackOverflowError  Line29, Line31
 */
 
