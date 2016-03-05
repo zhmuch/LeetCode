@@ -1,6 +1,6 @@
 # LeetCode
 LeetCode
 
- #065 Valid Number     状态机
+ #065 Valid Number:     状态机
  
- #264 Ugly Number      Three LinkedList
+ #264 Ugly Number:      Three LinkedList
