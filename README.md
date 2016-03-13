@@ -3,6 +3,8 @@ LeetCode
 
  #065 Valid Number:     状态机
  
+ #224 Basic Calculator: Stack!
+ 
  #264 Ugly Number:      Three LinkedList
  
  #313 Super Ugly Number:  Different from #264
