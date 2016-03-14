@@ -22,7 +22,7 @@ public class Solution {
         boolean[][] mat = new boolean[lp][ls];
         
         for(int j=0; j<ls; j++)
-            if(p.charAt(0) ==s.charAt(j))
+            if(p.charAt(0) == s.charAt(j) || p.charAt(0) == '*')
                 mat[0][j] = true;
             else
                 mat[0][j] = false;
