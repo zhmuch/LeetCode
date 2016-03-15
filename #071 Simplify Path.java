@@ -1,6 +1,47 @@
 /*
+  Other`s Work Use Split!
+*/
+import java.util.*;
+
+public class Solution {
+    public String simplifyPath(String path) {
+        if(path==null) return null;  
+          
+        String[] strs = path.split("/");  
+        Stack<String> stack = new Stack<String>();  
+          
+        for( int i=0; i<strs.length; i++) {  
+            String s = strs[i];  
+            if( s.equals(".") || s.length()==0) {//!alert: s.length==0 or u will have many ////.  
+                 continue;  
+            } else if(s.equals("..") ) {  
+                if(!stack.isEmpty()){  
+                    stack.pop();  
+                }  
+            } else {  
+                stack.push(s);  
+            }   
+        }  
+          
+        StringBuilder sb = new StringBuilder();  
+          
+        while(!stack.isEmpty()) {  
+            sb.insert(0, stack.pop() );  
+            sb.insert(0, "/");  
+        }  
+          
+        if(sb.length()==0) sb.insert(0, "/");  
+        return sb.toString();  
+    }
+}
+
+
+
+/*
   Lack of classification.
 */
+
+import java.util.*;
 
 public class Solution {
     public String simplifyPath(String path) {
@@ -18,11 +59,16 @@ public class Solution {
 
         while(true)
         {
-//            System.out.println("index: " + index);
-//            System.out.println("index: " + path.charAt(index));
-            tmp = tmp + path.charAt(index);
-//            System.out.println("tmp: " + tmp);
-            index++;
+            if(tmp.equals("")){
+                tmp = tmp + path.charAt(index);
+                index++;
+                while(index < l && path.charAt(index) == '/')
+                    index++;
+                    
+            }
+            else
+                tmp = tmp + path.charAt(index++);
+                
             if(index == l)
                 break;
 
@@ -39,6 +85,9 @@ public class Solution {
             }
         }
 
+        if(stack.empty())
+            return "/";
+            
         String res = "";
         while(!stack.empty())
             res = stack.pop() + res;
