@@ -10,3 +10,5 @@ LeetCode
  #313 Super Ugly Number:  Different from #264
  
  #335 Self Crossing:  Consider in what situation will self cross.
+ 
+ #087 Scramble String
