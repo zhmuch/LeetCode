@@ -1,4 +1,38 @@
 /*
+  Greedy Algorithm.
+*/
+public class Solution {
+    public boolean isMatch(String s, String p) {
+        int slen = s.length();  
+        int plen = p.length();  
+        int i = 0, j=0;  
+        int star = -1;  
+        int sp = 0;  
+        while(i<slen){  
+            while(j<plen && p.charAt(j)=='*'){  
+                star = j++;  
+                sp = i;  
+            }  
+            if( j==plen || (s.charAt(i) != p.charAt(j) && p.charAt(j) != '?') ){  
+                if(star<0) return false;  
+                else {  
+                    j = star+1;  
+                    i = sp++; 
+                }  
+            }else {  
+                i++;  
+                j++;
+            }  
+        }  
+        while(j<plen && p.charAt(j)=='*'){  
+            j++;  
+        }  
+        return j == plen;  
+    }
+}
+
+
+/*
   Can be improved
 */
 import java.util.*;
