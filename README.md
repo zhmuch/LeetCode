@@ -14,3 +14,5 @@ LeetCode
  #336 Palindrome Pairs: Time Limit!
  
  #087 Scramble String
+ 
+ #214 KMP!!!
