@@ -1,4 +1,42 @@
 /*
+  DP, one Array.
+*/
+import java.util.*;
+
+public class Solution {
+    public int longestValidParentheses(String s) {
+        int l = s.length();
+        if(l < 1)
+            return 0;
+
+        int[] dp = new int[l];
+        dp[0] = 0;
+        int max = 0;
+
+        for(int i=1; i<l; i++){
+            if(s.charAt(i) == '(')
+                dp[i] = 0;
+            else{
+                int p = i - 1;
+                while(p >= 0 && dp[p] > 0)
+                    p -= dp[p];
+                if(p>=0 && s.charAt(p) == '('){
+                    if(p > 0)
+                        dp[i] = dp[i-1] + 2 + dp[p-1];
+                    else
+                        dp[i] = dp[i-1] + 2;
+                    max = Math.max(dp[i], max);
+                }
+                else
+                    dp[i] = 0;
+            }
+        }
+
+        return max;
+    }
+}
+
+/*
   Not continuous SubString.
 */
 
