@@ -23,7 +23,7 @@ public class Solution {
             if(tmp >= 10 && tmp <= 26)
                 m[i] += m[i-2];
 
-            if(m[i] == 0)
+            if(m[i] == 0)           //Not necessary, but can improve running time.
                 return 0;
         }
 
