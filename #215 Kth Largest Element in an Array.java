@@ -1,4 +1,18 @@
 /*
+  Priority Heap.
+*/
+...
+
+
+/*
+  SELECTION().
+  Randomized Partition
+  O(n)
+*/ 
+...
+
+
+/*
   Sort. O(nlgn).
 */
 
