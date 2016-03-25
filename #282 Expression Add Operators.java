@@ -1,4 +1,54 @@
 /*
+  DFS.
+*/
+import java.util.*;
+
+public class Solution {
+    List<String> res = new LinkedList<>();
+
+    public List<String> addOperators(String num, int target) {
+
+        int l = num.length();
+        if(l < 1)
+            return res;
+
+        generate(num, target, 0, 0, "");
+
+        return res;
+    }
+
+    private void generate(String num, int target, long curr, long prev, String tmp){
+
+        if(num.length() == 0 && curr == target){
+            res.add(new String(tmp));
+            return;
+        }
+
+        for(int i=1; i<=num.length(); i++){
+            
+            String currSub = num.substring(0, i);
+            if(currSub.length() > 1 && currSub.charAt(0) == '0')
+                return;
+            String nextSub = num.substring(i);
+            
+            long currS = Long.parseLong(currSub);
+            if(tmp.length() != 0){
+                //'+'
+                generate(nextSub, target, curr + currS, currS, tmp + '+' + currS);
+                //'-'
+                generate(nextSub, target, curr - currS, -currS, tmp + '-' + currS);
+                //'*'
+                generate(nextSub, target, curr - prev + prev * currS, prev * currS, tmp + '*' + currS);
+            } else
+                generate(nextSub, target, currS, currS, "" + currS);
+        }
+
+        return;
+    }
+}
+
+
+/*
   Other`s work.
 */
 public class Solution {
