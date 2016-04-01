@@ -1,5 +1,6 @@
 /*
   Super FAST!!
+  Use Array instead of List<>;
 */
 public class Solution {
 
