@@ -44,8 +44,10 @@ public class Solution {
             count += tr - tl;
         }
 
-        System.arraycopy(tmp, 0, sums, left, j - left);
-
+        for(int id=0; id<j-left; id++)
+            sums[left + id] = tmp[id];
+//        System.arraycopy(tmp, 0, sums, left, j - left);
+        
         return count;
 
     }
