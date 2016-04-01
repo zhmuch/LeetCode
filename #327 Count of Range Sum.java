@@ -1,4 +1,6 @@
-import java.util.*;
+/*
+    mergeCount[i, j)
+*/
 
 public class Solution {
     long[] sums;
