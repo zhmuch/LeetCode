@@ -9,30 +9,42 @@ public class Solution {
         this.lower = lower;
         this.upper = upper;
 
-        sums = new long[nums.length];
-        sums[0] = nums[0];
-        for(int i = 1; i < nums.length; i++)
-            sums[i] = sums[i - 1] + nums[i];
+        sums = new long[nums.length + 1];
+        for(int i = 0; i < nums.length; i++)
+            sums[i + 1] = sums[i] + nums[i];
 
-        return mergeCount(0, nums.length - 1);
+        return mergeCount(0, nums.length + 1);
 
     }
 
     private int mergeCount(int left, int right){
 
-        if(right < left)
+        if(left >= right - 1)
             return 0;
 
         int mid = (left + right) / 2;
-        int count = mergeCount(left, mid) + mergeCount(mid + 1, right);
+        int count = mergeCount(left, mid) + mergeCount(mid, right);
 
-        long[] tmp = new long[right - left + 1];
+        long[] tmp = new long[right - left];
+        int ind = 0, i = left, j = mid, tl = mid, tr = mid;
 
-        int ind = left, i = left, j = mid + 1;
-
-        while(i <= mid){
-
+        while(i < mid){
+            while(tl < right && sums[tl] - sums[i] < lower)
+                tl++;
+            while(tr < right && sums[tr] - sums[i] <= upper)
+                tr++;
+            while(j < right && sums[j] < sums[i]){
+                tmp[ind] = sums[j];
+                j++;
+                ind++;
+            }
+            tmp[ind] = sums[i];
+            i++;
+            ind++;
+            count += tr - tl;
         }
+
+        System.arraycopy(tmp, 0, sums, left, j - left);
 
         return count;
 
