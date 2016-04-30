@@ -1,4 +1,13 @@
 //  Super Fast
+/*
+    the buildings is sorted by x, so we can build the result list by adding the buildings one by one
+
+findIndex() : binary search the first blocks that the building will change. it must after the previous building's first changing block;
+
+update() : begin from the first block, the blocks in result list will change which are covered by the building if the building is higher than the block. And we should consider the connect block with same height will combine.
+
+getSkyline : add the buildings to the result list one by one.
+*/
 public class Solution {
     public int findIndex(int buildingLeft,List<int[]> re,int StartIndex,int EndIndex){
         int mid;
