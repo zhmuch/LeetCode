@@ -1,5 +1,6 @@
 //  O(nlogn),
 //  Other`s Work;
+
 public class Solution {
     public int lengthOfLIS(int[] nums) {            
         int[] dp = new int[nums.length];
