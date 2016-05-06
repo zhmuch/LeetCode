@@ -22,7 +22,6 @@ public class Solution {
 
 public class Solution {
     public int lengthOfLIS(int[] nums) {
-        
         int len = nums.length;
         if(len < 1)
             return 0;
@@ -41,6 +40,5 @@ public class Solution {
         }
     
         return max;
-        
     }
 }
