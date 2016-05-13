@@ -1,3 +1,27 @@
+//  Inorder Traversal
+public class Solution {  
+    // Keep the previous value in inorder traversal.  
+    TreeNode pre = null;  
+      
+    public boolean isValidBST(TreeNode root) {  
+        // Traverse the tree in inorder.  
+        if (root != null) {  
+            // Inorder traversal: left first.  
+            if (!isValidBST(root.left)) return false;  
+              
+            // Compare it with the previous value in inorder traversal.  
+            if (pre != null && root.val <= pre.val) return false;  
+              
+            // Update the previous value.  
+            pre = root;  
+              
+            // Inorder traversal: right last.  
+            return isValidBST(root.right);  
+        }  
+        return true;  
+     }  
+}  
+
 //  Time Limit Exceed.
 
 public class Solution {
