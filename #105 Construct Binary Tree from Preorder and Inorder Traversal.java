@@ -1,3 +1,7 @@
+//  Be familiar with Preorder & Inorder Traversal
+//  Use Stack to keep track of added TreeNodes
+//  Hashtable(from Inorder Traversal) store the relative order of TreeNodes 
+
 import java.util.*;
 
 public class Solution {
