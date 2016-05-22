@@ -20,10 +20,25 @@ public class Solution {
     }
 }
 
-//  
+//  Recursively;
+public class Solution {
+    public int kthSmallest(TreeNode root, int k) {
+        int left = count(root.left);
+        
+        if(k <= left)
+            return kthSmallest(root.left, k);
+        else if (k == left + 1)
+            return root.val;
+        else
+            return kthSmallest(root.right, k - left - 1);
+    }
+    
+    private int count(TreeNode root) {
+        return (root == null) ? 0 : count(root.left) + count(root.right) + 1;
+    }
+}
 
 //  Inorder Traversal;
-
 public class Solution {
     ArrayList<Integer> res;
 
