@@ -19,8 +19,8 @@ public class Solution {
         }
         
         if(leftH == rightH)
-            return ((int)Math.pow(2, leftH)) - 1;
-            //  return (2 << (leftH - 1)) - 1;
+            return ((int)Math.pow(2, leftH)) - 1;           //  Slow
+            return (2 << (leftH - 1)) - 1;                  //  Quick!!!
         else
             return countNodes(root.left) + countNodes(root.right) + 1;
     }
