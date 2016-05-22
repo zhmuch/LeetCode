@@ -1,42 +1,3 @@
-//  Other`s DP solution;
-public class Solution {
-
-    private Map<TreeNode, Integer> rob = new HashMap<>();
-    private Map<TreeNode, Integer> norob = new HashMap<>();
-
-    public int rob(TreeNode root) {
-        return Math.max(robHelper(root, true), robHelper(root, false));
-    }
-
-    private int robHelper(TreeNode root, boolean robRoot) {
-        if (root == null) {
-            return 0;
-        }
-
-        if (robRoot) {
-            if (rob.containsKey(root)) {
-                // Solved case
-                return rob.get(root);
-            } else {
-                int money = root.val + robHelper(root.left, false) + robHelper(root.right, false);
-                rob.put(root, money);
-                return money;
-            }
-        } else {
-            if (norob.containsKey(root)) {
-                // Solved case
-                return norob.get(root);
-            } else {
-                int leftMax = Math.max(robHelper(root.left, false), robHelper(root.left, true));
-                int rightMax = Math.max(robHelper(root.right, false), robHelper(root.right, true));
-                int money = leftMax + rightMax;
-                norob.put(root, money);
-                return money;
-            }
-        }
-    }
-}
-
 //  Naive, Recursively;
 public class Solution {
     public int rob(TreeNode root) {
@@ -85,8 +46,50 @@ public class Solution {
                 if(root.right.right != null)
                     inclu += table.containsKey(root.right.right) ? table.get(root.right.right) : rob(root.right.right);
             }
-
-            return Math.max(exclu, inclu);
+            
+            int res = Math.max(exclu, inclu);
+            table.put(root, res);
+            return res;
         }
     }
 }
+
+//  Other`s DP solution;
+public class Solution {
+
+    private Map<TreeNode, Integer> rob = new HashMap<>();
+    private Map<TreeNode, Integer> norob = new HashMap<>();
+
+    public int rob(TreeNode root) {
+        return Math.max(robHelper(root, true), robHelper(root, false));
+    }
+
+    private int robHelper(TreeNode root, boolean robRoot) {
+        if (root == null) {
+            return 0;
+        }
+
+        if (robRoot) {
+            if (rob.containsKey(root)) {
+                // Solved case
+                return rob.get(root);
+            } else {
+                int money = root.val + robHelper(root.left, false) + robHelper(root.right, false);
+                rob.put(root, money);
+                return money;
+            }
+        } else {
+            if (norob.containsKey(root)) {
+                // Solved case
+                return norob.get(root);
+            } else {
+                int leftMax = Math.max(robHelper(root.left, false), robHelper(root.left, true));
+                int rightMax = Math.max(robHelper(root.right, false), robHelper(root.right, true));
+                int money = leftMax + rightMax;
+                norob.put(root, money);
+                return money;
+            }
+        }
+    }
+}
+
