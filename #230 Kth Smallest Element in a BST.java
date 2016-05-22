@@ -1,3 +1,27 @@
+//  Iteratively;
+public class Solution {
+    public int kthSmallest(TreeNode root, int k) {
+        Stack<TreeNode> stack = new Stack<>();  
+      
+        while(k > 0 && (root != null || !stack.isEmpty())) {
+            if(root == null) {
+                root = stack.pop();
+                k--;
+                if(k == 0)
+                    return root.val;
+                root = root.right;
+            } else {
+                stack.push(root);
+                root = root.left;
+            }
+        }
+        
+        return root.val;
+    }
+}
+
+//  
+
 //  Inorder Traversal;
 
 public class Solution {
