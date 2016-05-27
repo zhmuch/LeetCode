@@ -1,4 +1,6 @@
-//  求 m 与 n 二进制编码中 同为1的前缀.
+//  求 m 与 n 二进制编码中 同为1的前缀
+//  按位比较，不一样就跳出。
+
 public class Solution {
     public int rangeBitwiseAnd(int m, int n) {
         int bit = 0;  
