@@ -1,4 +1,4 @@
-import java.util.*;
+//  Same as #130;
 
 public class Solution {
     char[][] grid;
