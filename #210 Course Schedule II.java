@@ -1,4 +1,5 @@
-import java.util.*;
+//  Same as #207;
+//  Topological Sort!!!!!!
 
 public class Solution {
     public int[] findOrder(int numCourses, int[][] prerequisites) {
@@ -11,11 +12,6 @@ public class Solution {
 
         for(int[] i : prerequisites)
             adjLists[i[1]].add(i[0]);
-//        else{
-//            for(int i = 0; i < numCourses; i++)
-//                notExi[i] = i;
-//            return notExi;
-//        }
 
         int[] stats = new int[numCourses];
         int[] res = new int[numCourses];
