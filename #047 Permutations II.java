@@ -41,6 +41,7 @@ public class Solution {
 
 
 //  bugs
+//  原因： 在排除重复部分，此算法会低估重复的次数；
 import java.util.*;
 
 public class Solution {
