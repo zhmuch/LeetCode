@@ -38,3 +38,43 @@ public class Solution {
         }
     }
 }
+
+
+//  bugs
+import java.util.*;
+
+public class Solution {
+
+    public List<List<Integer>> permuteUnique(int[] nums) {
+        List<List<Integer>> list = new LinkedList<>();
+        
+        if(nums == null || nums.length < 1)
+            return list;
+        
+        Arrays.sort(nums);
+        permute(list, nums, 0);
+        return list;
+    }
+
+    private void permute(List<List<Integer>> list, int[] nums, int start){
+        if(start == nums.length - 1){
+            List<Integer> l = new LinkedList<>();
+            for(int n:nums)
+                l.add(n);
+            list.add(l);
+        }
+        else{
+            permute(list, nums, start+1);
+            for(int i = start + 1; i < nums.length; i++)
+                if(nums[i] != nums[start] && nums[i] != nums[i - 1]) {
+                    int tmp = nums[i];
+                    nums[i] = nums[start];
+                    nums[start] = tmp;
+                    permute(list, nums, start+1);
+                    tmp = nums[i];
+                    nums[i] = nums[start];
+                    nums[start] = tmp;
+                }
+        }
+    }
+}
