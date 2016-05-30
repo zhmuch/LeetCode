@@ -42,6 +42,7 @@ public class Solution {
 
 //  bugs
 //  原因： 在排除重复部分，此算法会低估重复的次数；
+//  Cannot pass [-1,2,0,-1,1,0,1];
 import java.util.*;
 
 public class Solution {
