@@ -1,4 +1,10 @@
-import java.util.Iterator;
+/**
+ * 用一个flag 和 int; 表示当前元素是不是被peek过；
+ * 如果peeked
+ *      返回该缓存int
+ * 如果未peeked
+ *      按一般迭代器操作
+ */
 
 /**
  * Created by Muchen on 5/31/16.
