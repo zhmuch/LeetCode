@@ -19,6 +19,60 @@ import java.util.*;
  */
  
  
+ // Stack Version!!!!!!!!!!!!!!!!!!
+
+public class NestedIterator implements Iterator<Integer> {
+
+    LinkedList<Integer> list;
+    Iterator<Integer> iterator;
+
+    public NestedIterator(List<NestedInteger> nestedList) {
+        list = new LinkedList<>();
+        
+        Stack<List<NestedInteger>> stack = new Stack<>();
+
+        for(NestedInteger i : nestedList)
+            if(i.isInteger())
+                list.add(i.getInteger());
+            else{  
+                stack.add(i.getList());
+                
+                while(!stack.isEmpty()) {
+                    List<NestedInteger> curr = stack.peek();
+                    if(curr.size() < 1)
+                        stack.pop();
+                    else{
+                        NestedInteger tmp = curr.remove(0);
+                        if(tmp.isInteger())
+                            list.add(tmp.getInteger());
+                        else{
+                            stack.add(tmp.getList());
+                        }
+                    }
+                }
+            }
+
+        iterator = list.iterator();
+    }
+
+    @Override
+    public Integer next() {
+        return iterator.next();
+    }
+
+    @Override
+    public boolean hasNext() {
+        return iterator.hasNext();
+    }
+}
+
+/**
+ * Your NestedIterator object will be instantiated and called as such:
+ * NestedIterator i = new NestedIterator(nestedList);
+ * while (i.hasNext()) v[f()] = i.next();
+ */
+ 
+ 
  //   Recursion Version!!!!!!!!!!!!!!!
  
  
