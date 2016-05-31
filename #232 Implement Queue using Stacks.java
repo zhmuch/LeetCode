@@ -1,3 +1,9 @@
+/**
+ * 注意Stack 和 Queue 性质的区别；
+ * Queue q1, q2; 如果把q1和q2两个互相交换，得到的两个Queue与原来的相同；
+ * Stack s1, s2; 如果把s1和s2互换，得到的两个Stack与原来的元素一样，但是位置不同；栈底-->栈顶，栈顶-->栈底；
+ */
+
 import java.util.Stack;
 
 /**
