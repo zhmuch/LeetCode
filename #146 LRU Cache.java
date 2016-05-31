@@ -1,3 +1,7 @@
+/**
+ * 链表＋HashMap;
+ */
+
 import java.util.HashMap;
 
 /**
