@@ -1,5 +1,6 @@
 //  Some bugs;
 //  Misunderstand the purpose;
+//  Same ratings does not necessarily have to get same candy;
 
 import java.util.*;
 
