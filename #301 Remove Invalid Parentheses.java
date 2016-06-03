@@ -27,6 +27,71 @@ public class Solution {
 }
 
 
+//  Naive Search;
+import java.util.*;
+
+public class Solution {
+    public List<String> removeInvalidParentheses(String s) {
+
+        List<String> res = new ArrayList<>();
+
+        int foundLength = -1;
+        Queue<String> queue = new LinkedList<>();
+        queue.offer(s);
+        HashSet<String> unique = new HashSet<>();
+        unique.add(s);
+
+        while(!queue.isEmpty()){
+            String tmp = queue.poll();
+
+            if(foundLength != -1 && tmp.length() < foundLength)
+                continue;
+
+            if(isValid(tmp)){
+                foundLength = tmp.length();
+                res.add(tmp);
+            }
+
+            if(foundLength != -1)
+                continue;
+
+            for(int i = 0; i < tmp.length(); i++){
+                if(tmp.charAt(i) != '(' && tmp.charAt(i) != ')')
+                    continue;
+
+                String t = tmp.substring(0, i) + tmp.substring(i + 1, tmp.length());
+                
+                if(!unique.contains(t)){
+                    queue.offer(t);
+                    unique.add(t);
+                }
+            }
+
+        }
+
+        return res;
+    }
+
+    private boolean isValid(String s){
+        if(s.length() < 1)
+            return true;
+
+        int count = 0;
+        for(int i = 0; i < s.length(); i++)
+            if(s.charAt(i) == '(')
+                count++;
+            else if(s.charAt(i) == ')'){
+                if(count == 0)
+                    return false;
+                else
+                    count--;
+            }
+
+        return count == 0;
+    }
+}
+
+
 
 //  Unfinished;
 
