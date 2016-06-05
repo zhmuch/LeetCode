@@ -2,6 +2,8 @@
 //  If tmp > median, put it in the large position;
 //  Else, put in the small position;
 
+//  Stack Overflow;
+
 public class Solution {  
     public int vi(int n, int original) {  
         int virtual = (1+ 2 *original)%(n|1);  
