@@ -1,3 +1,31 @@
+//  Fast, but not O(n);
+public class Solution {
+    public void wiggleSort(int[] nums) {
+        Arrays.sort(nums);
+        
+        int[] copy = new int[nums.length];
+        for(int i = 0; i< nums.length; ++i)
+        {
+            copy[i] = nums[i];
+        }
+        
+        for(int i = 0; i< nums.length; ++i)
+        {
+            int w = i%2;
+            if(w == 0)
+            { 
+                nums[i] = copy[(nums.length-1)/2 - i/2];
+            }   //Take 2,   1,   0
+            else//Take   5,   4,   3
+            {
+                nums[i] = copy[nums.length-1 - i/2];
+            }
+            
+        }
+    }
+}
+
+
 //  First, find the median of the array input;
 //  If tmp > median, put it in the large position;
 //  Else, put in the small position;
