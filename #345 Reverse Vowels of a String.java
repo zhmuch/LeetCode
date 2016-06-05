@@ -1,4 +1,43 @@
+//  Stack;
+import java.util.*;
+
+public class Solution {
+    public String reverseVowels(String s) {
+        if (s == null)
+            return s;
+
+        Set<Character> set = new HashSet<>();
+        set.add('a');
+        set.add('e');
+        set.add('i');
+        set.add('o');
+        set.add('u');
+        set.add('A');
+        set.add('E');
+        set.add('I');
+        set.add('O');
+        set.add('U');
+
+        StringBuilder tmp = new StringBuilder();
+        Stack<Character> stack = new Stack<>();
+
+        for(int i = 0; i < s.length(); i++)
+            if(set.contains(s.charAt(i)))
+                stack.push(s.charAt(i));
+
+        for(int i = 0; i < s.length(); i++)
+            if(set.contains(s.charAt(i)))
+                tmp.append(stack.pop());
+            else
+                tmp.append(s.charAt(i));
+
+        return tmp.toString();
+    }
+}
+
+
 //  大小写！！
+//  Very slow;
 
 
 public class Solution {
