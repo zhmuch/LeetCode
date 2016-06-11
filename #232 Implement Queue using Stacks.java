@@ -48,3 +48,43 @@ class MyQueue {
         return stack.isEmpty();
     }
 }
+
+
+//  Lazy one;
+
+
+import java.util.Stack;
+
+class MyQueue {
+
+    Stack<Integer> stackNew = new Stack<>(), stackOld = new Stack<>(); 
+
+    // Push element x to the back of queue.
+    public void push(int x) {
+        stackNew.push(x);
+    }
+
+    // Removes the element from in front of queue.
+    public void pop() {
+        exchangeStack();
+        stackOld.pop();
+    }
+
+    // Get the front element.
+    public int peek() {
+        exchangeStack();
+        return stackOld.peek();
+    }
+
+    // Return whether the queue is empty.
+    public boolean empty() {
+        return stackNew.isEmpty() && stackOld.isEmpty();
+    }
+
+
+    private void exchangeStack() {
+        if(stackOld.isEmpty())
+            while(!stackNew.isEmpty())
+                stackOld.push(stackNew.pop());
+    }
+}
