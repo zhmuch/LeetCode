@@ -27,6 +27,7 @@ public class Solution {
                 if (!used[i]) {
                     used[i] = true;
                     curr.add(nums[i]);
+                    
                     generate(curr, x + 1);
 
                     used[i] = false;
