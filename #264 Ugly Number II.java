@@ -1,6 +1,9 @@
 public class Solution {
     public int nthUglyNumber(int n) {
         //1, 2, 3.
+        //l1, l2, l3 储存新乘因子分别为2, 3, 5的有序链表
+        
+        
         int res = 0;
         
         LinkedList<Integer> l1 = new LinkedList();
