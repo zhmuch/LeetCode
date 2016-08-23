@@ -13,7 +13,7 @@ public class Solution {
         
         for(int i = 1; i < l; i++){
             arr[i] = height[i];
-            for(int j = i-1; j >= 0; j--){
+            for(int j = i - 1; j >= 0; j--){
                 if(arr[j] > arr[i]){
                     max = Math.max(arr[j] * (i-j), max);
                     arr[j] = arr[i];
