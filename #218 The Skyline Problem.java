@@ -4,7 +4,8 @@
 
 findIndex() : binary search the first blocks that the building will change. it must after the previous building's first changing block;
 
-update() : begin from the first block, the blocks in result list will change which are covered by the building if the building is higher than the block. And we should consider the connect block with same height will combine.
+update() : begin from the first block, the blocks in result list will change which are covered by the building if the building 
+is higher than the block. And we should consider the connect block with same height will combine.
 
 getSkyline : add the buildings to the result list one by one.
 */
